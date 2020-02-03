@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <title>Edit the gossip <%= id %></title>
+  </head>
+  <body>
+    <div>
+      <% if (1..Gossip.all.length).include? id %>
+        <h1>Edit page</h1>
+        <form action='/gossips/<%= id %>/edit/' method='POST'>
+        Name : <br><input type='text' name='gossip_author'/><br/>
+        Gossip : <br><input type='text' name='gossip_content'/><br/>
+        <input type='submit'/>
+      </form>
+      <% else %>
+        <h1>the gossip n°<%=id%> does not exist.</h1>
+      <% end %>
+      <a href="/">link back to the gossip</a>
+    </div>
+  </body>
+</html>

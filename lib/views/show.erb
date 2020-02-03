@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <title>Gossips n°<%=id%></title>
+  </head>
+  <body>
+    <div>
+      <% if (1..Gossip.all.length).include? id %>
+        <h1>Gossip page</h1>
+        <p>Here is the gossip number <%=id%></p>
+        <p>User : <%= gossip.author %></p>
+        <p>The gossip : <%= gossip.content %></p><br>
+        <a href="/gossips/<%= id %>/edit/">Edit gossip</a><br>
+        <% if gossip.comments.split(';').length > 1 %>
+          <h2 >Rate :</h2>
+        <% end %>
+        <% gossip.comments.split(';').each do |com| %>
+          <p><%= '"'+com+'"' unless com == "" %></p>
+        <% end %>
+      <% end %>
+      <a href="/">link back to the gossip</a>
+    </div>
+  </body>
+</html>
